@@ -1,0 +1,23 @@
+/* Sets base size to 10px (62.5% of 16 px or 1 rem).  Makes calculating easier*/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: $m-size;    
+}
+
+/* Cursor:pointer makes the pointer turn to a hand when on a button */
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+.is-active {
+    font-weight: bold;
+}
+
