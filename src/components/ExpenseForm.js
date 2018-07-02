@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
 
 // If no argument is passed into moment, it represents now (the current point in time).
 const now = moment();
@@ -46,6 +45,7 @@ class ExpenseForm extends React.Component {
   };
   onSubmit = e => {
     e.preventDefault();
+    
     if (!this.state.description || !this.state.amount) {
       this.setState(() => ({
         error: "Please Provide Description and Amount."
