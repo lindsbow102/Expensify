@@ -5,8 +5,6 @@ import "react-dates/initialize";
 
 // If no argument is passed into moment, it represents now (the current point in time).
 const now = moment();
-console.log(now.format("MMM Do, YYYY"));
-console.log(now.format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
 class ExpenseForm extends React.Component {
   constructor(props) {
