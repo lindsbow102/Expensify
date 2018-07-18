@@ -145,7 +145,7 @@
 //database.ref('age').set(null); // This is equivalent to remove, but we will use remove since it is more explicit
 
 // database.ref()
-//     .remove()
+//     .remove('age')
 //     .then(() => {
 //         console.log('Age has been removed!');
 //     }).catch((e) => {

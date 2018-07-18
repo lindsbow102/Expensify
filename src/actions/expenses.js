@@ -49,6 +49,20 @@ export const removeExpense = ({ id } = {}) => ({
   id
 });
 
+// Wipes data from firebase and then dispatches REMOVE_EXPENSE (asynchronous)
+// startRemoveExpense
+export const startRemoveExpense = ({id} = {}) => {
+  return dispatch => {
+    return database
+      .ref(`expenses/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(
+          removeExpense({ id }));
+      });
+  };
+};
+
 //EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
   type: "EDIT_EXPENSE",
