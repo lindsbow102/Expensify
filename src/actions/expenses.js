@@ -51,14 +51,13 @@ export const removeExpense = ({ id } = {}) => ({
 
 // Wipes data from firebase and then dispatches REMOVE_EXPENSE (asynchronous)
 // startRemoveExpense
-export const startRemoveExpense = ({id} = {}) => {
+export const startRemoveExpense = ({ id } = {}) => {
   return dispatch => {
     return database
       .ref(`expenses/${id}`)
       .remove()
       .then(() => {
-        dispatch(
-          removeExpense({ id }));
+        dispatch(removeExpense({ id }));
       });
   };
 };
@@ -69,6 +68,18 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+// startEditExpense --edits existing expenses in firebase then dispatches EDIT_EXPENSE
+export const startEditExpense = (id, updates) => {
+  return dispatch => {
+    return database
+      .ref(`expenses/${id}`)
+      .update(updates)
+      .then(() => {
+        dispatch(editExpense(id, updates));
+      });
+  };
+};
 
 //SET_EXPENSES
 export const setExpenses = expenses => ({
