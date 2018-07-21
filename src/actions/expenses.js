@@ -20,7 +20,8 @@ export const addExpense = expense => ({
 
 // This is responsible for fetching data from firebase
 export const startAddExpense = (expenseData = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       description = "",
       note = "",
@@ -30,7 +31,7 @@ export const startAddExpense = (expenseData = {}) => {
     const expense = { description, note, amount, createdAt };
 
     return database
-      .ref("expenses")
+      .ref(`users/${uid}/expenses`)
       .push(expense)
       .then(ref => {
         dispatch(
@@ -52,9 +53,10 @@ export const removeExpense = ({ id } = {}) => ({
 // Wipes data from firebase and then dispatches REMOVE_EXPENSE (asynchronous)
 // startRemoveExpense
 export const startRemoveExpense = ({ id } = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref(`expenses/${id}`)
+      .ref(`users/${uid}/expenses/${id}`)
       .remove()
       .then(() => {
         dispatch(removeExpense({ id }));
@@ -71,9 +73,10 @@ export const editExpense = (id, updates) => ({
 
 // startEditExpense --edits existing expenses in firebase then dispatches EDIT_EXPENSE
 export const startEditExpense = (id, updates) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref(`expenses/${id}`)
+      .ref(`users/${uid}/expenses/${id}`)
       .update(updates)
       .then(() => {
         dispatch(editExpense(id, updates));
@@ -89,9 +92,10 @@ export const setExpenses = expenses => ({
 
 // Asynchronous action -- will fetch data and eventually dispatch setExpenses
 export const startSetExpenses = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref("expenses")
+      .ref(`users/${uid}/expenses`)
       .once("value")
       .then(snapshot => {
         const expenses = [];
