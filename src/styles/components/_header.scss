@@ -1,0 +1,19 @@
+.header {
+    background: $dark-blue;
+}
+
+.header__content{ 
+    align-items: center; // Aligns items vertically
+    display: flex;
+    justify-content: space-between;
+    padding: $s-size 0; // Top/bottom, Sides
+}
+
+.header__title {
+    color: white;
+    text-decoration: none; // Clears the link underline
+    h1 {
+        margin: 0; // Targets all h1's within the header__title selector
+    }
+}
+
