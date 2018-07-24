@@ -3,7 +3,14 @@
     border: none;
     border-radius: 3px;
     color: white;
+    display: inline-block; // To ensure that vertical margin and padding actually take effect
+    line-height: 1;
     font-size: $font-size-large;
     font-weight: 300;
     padding: $s-size;
+    text-decoration: none;
+}
+
+.button--link {
+    background: none;
 }

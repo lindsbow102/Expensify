@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box; // Sets box size, including space it needs for border & padding
+}
+
 /* Sets base size to 10px (62.5% of 16 px or 1 rem).  Makes calculating easier*/
 html {
     font-size: 62.5%;
