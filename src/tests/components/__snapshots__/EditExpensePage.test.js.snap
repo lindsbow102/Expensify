@@ -21,10 +21,10 @@ exports[`should render EditExpensePage correctly 1`] = `
     <ExpenseForm
       expense={
         Object {
-          "amount": 250,
-          "createdAt": -345600000,
-          "description": "Coke",
-          "id": "2",
+          "amount": 109500,
+          "createdAt": 345600000,
+          "description": "Rent",
+          "id": "3",
           "note": "",
         }
       }
@@ -37,5 +37,10 @@ exports[`should render EditExpensePage correctly 1`] = `
       Remove Expense
     </button>
   </div>
+  <ConfirmationModal
+    closeModal={[Function]}
+    modalAction={[Function]}
+    modalOpen={false}
+  />
 </div>
 `;
